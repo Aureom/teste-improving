@@ -7,50 +7,74 @@ import java.math.BigDecimal;
  */
 public class Item {
 
-    private Produto produto;
-    private BigDecimal valorUnitario;
-    private int quantidade;
+	private final Produto produto;
+	private BigDecimal valorUnitario;
+	private int quantidade;
 
-    /**
-     * Construtor da classe Item.
-     * 
-     * @param produto
-     * @param valorUnitario
-     * @param quantidade
-     */
-    public Item(Produto produto, BigDecimal valorUnitario, int quantidade) {
-    }
+	/**
+	 * Construtor da classe Item.
+	 *
+	 * @param produto
+	 * @param valorUnitario
+	 * @param quantidade
+	 */
+	public Item(Produto produto, BigDecimal valorUnitario, int quantidade) {
+		this.produto = produto;
+		this.valorUnitario = valorUnitario;
+		this.quantidade = quantidade;
+	}
 
-    /**
-     * Retorna o produto.
-     *
-     * @return Produto
-     */
-    public Produto getProduto() {
-    }
+	/**
+	 * Retorna o produto.
+	 *
+	 * @return Produto
+	 */
+	public Produto getProduto() {
+		return this.produto;
+	}
 
-    /**
-     * Retorna o valor unitário do item.
-     *
-     * @return BigDecimal
-     */
-    public BigDecimal getValorUnitario() {
-    }
+	/**
+	 * Retorna o valor unitário do item.
+	 *
+	 * @return BigDecimal
+	 */
+	public BigDecimal getValorUnitario() {
+		return this.valorUnitario;
+	}
 
-    /**
-     * Retorna a quantidade dos item.
-     *
-     * @return int
-     */
-    public int getQuantidade() {
-    }
+	/**
+	 * Retorna a quantidade dos item.
+	 *
+	 * @return int
+	 */
+	public int getQuantidade() {
+		return this.quantidade;
+	}
 
-    /**
-     * Retorna o valor total do item.
-     *
-     * @return BigDecimal
-     */
-    public BigDecimal getValorTotal() {
+	/**
+	 * Atualiza a quantidade do item.
+	 *
+	 * @param quantidade
+	 */
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 
-    }
+	/**
+	 * Atualiza o valor unitário do item.
+	 *
+	 * @param valorUnitario
+	 */
+	public void setValorUnitario(BigDecimal valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	/**
+	 * Retorna o valor total do item.
+	 *
+	 * @return BigDecimal
+	 */
+	public BigDecimal getValorTotal() {
+		return this.valorUnitario.multiply(new BigDecimal(this.quantidade));
+	}
 }
